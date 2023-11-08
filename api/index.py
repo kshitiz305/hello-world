@@ -112,7 +112,7 @@ def main():
       sent_interested_list.add(notification_data[i]['random_key'])
 
     else:
-      print(f"Skipped {notification_data[i]['random_key']}")
+      print(f"Skipped {notification_data[i]['random_key']}",end = "")
 
 
 while True:
@@ -122,13 +122,13 @@ while True:
       f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}"
   )
 
-from http.server import BaseHTTPRequestHandler
+# from http.server import BaseHTTPRequestHandler
 
-class handler(BaseHTTPRequestHandler):
+# class handler(BaseHTTPRequestHandler):
 
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type','text/plain')
-        self.end_headers()
-        self.wfile.write('Hello, world!'.encode('utf-8'))
-        return
+#     def do_GET(self):
+#         self.send_response(200)
+#         self.send_header('Content-type','text/plain')
+#         self.end_headers()
+#         self.wfile.write('Hello, world!'.encode('utf-8'))
+#         return
