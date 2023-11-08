@@ -124,7 +124,7 @@ def main():
 # while True:
 #   main()
 
-@app.route('/api/cron', methods=['GET'])
+@app.route('/', methods=['GET'])
 def cron_endpoint():
     main()
     print(
