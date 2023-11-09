@@ -1,8 +1,8 @@
 {
-  "redirects": [{ "source": "/", "destination": "/api" }],
+  "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }],
   
   "crons": [{
-    "path": "/",
+    "path": "/api/cron",
     "schedule": "1 * * * *"
   }]
 }
