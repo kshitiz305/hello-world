@@ -124,26 +124,34 @@ def main():
 # while True:
 #   main()
 
-# @app.route('/', methods=['GET'])
-# def cron_endpoint():
-#     main()
-#     print(
-#       f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}"
-#   )
-#     return "This is the /api/cron endpoint."
+@app.route('/index', methods=['GET'])
+def cron_endpoint():
+    main()
+    print(
+      f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}"
+  )
+    return "This is the /api/cron endpoint."
 
-# if __name__ == '__main__':
-#     app.run()
+@app.route('/cron', methods=['GET'])
+def cron_endpoint():
+    main()
+    print(
+      f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}"
+  )
+    return "This is the /api/cron endpoint."
+
+if __name__ == '__main__':
+    app.run()
 
 
-from http.server import BaseHTTPRequestHandler
+# from http.server import BaseHTTPRequestHandler
 
-class handler(BaseHTTPRequestHandler):
+# class handler(BaseHTTPRequestHandler):
 
-    def do_GET(self):
-        self.send_response(200)
-        self.send_header('Content-type','text/plain')
-        self.end_headers()
-        self.wfile.write('Hello, world!'.encode('utf-8'))
-        print(f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}" )
-        return main()
+#     def do_GET(self):
+#         self.send_response(200)
+#         self.send_header('Content-type','text/plain')
+#         self.end_headers()
+#         self.wfile.write('Hello, world!'.encode('utf-8'))
+#         print(f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}" )
+#         return main()
