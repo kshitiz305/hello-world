@@ -125,7 +125,7 @@ def main():
 #   main()
 
 @app.route('/index', methods=['GET'])
-def cron_endpoint():
+def endpoint():
     main()
     print(
       f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}"
