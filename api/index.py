@@ -23,6 +23,12 @@ headers = {
     'Connection': 'keep-alive',
 }
 
+from flask import Flask
+
+app = Flask(__name__)
+
+
+
 
 def get_interested_sent_list():
   response_ = requests.get(
@@ -115,12 +121,28 @@ def main():
       print(f"Skipped {notification_data[i]['random_key']}",end = "")
 
 
-while True:
-  main()
-  time.sleep(30)
-  print(
+# while True:
+#   main()
+
+@app.route('/index', methods=['GET'])
+def endpoint():
+    main()
+    print(
       f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}"
   )
+    return "This is the /api/cron endpoint."
+
+@app.route('/cron', methods=['GET'])
+def cron_endpoint():
+    main()
+    print(
+      f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}"
+  )
+    return "This is the /api/cron endpoint."
+
+if __name__ == '__main__':
+    app.run()
+
 
 # from http.server import BaseHTTPRequestHandler
 
@@ -131,4 +153,5 @@ while True:
 #         self.send_header('Content-type','text/plain')
 #         self.end_headers()
 #         self.wfile.write('Hello, world!'.encode('utf-8'))
-#         return
+#         print(f"rolled once {datetime.datetime.now(timezone('Asia/Kolkata')).strftime('%Y-%m-%d %H:%M:%S.%f')}" )
+#         return main()
